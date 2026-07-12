@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode: `dark:` utilities apply when `.dark` is on an ancestor
+   (the shell toggles it on <html>; standalone/demo we toggle it ourselves).
+   Default (no class) is the light "Fan Deck" theme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Fan Deck palette ──────────────────────────────────────────────────────
+   The visual identity: warm paper and pigment in light, a warm near-black in
+   dark. Defined as CSS variables so every surface reads from one place and the
+   dark variant is a real, considered palette — not an inverted light one. We
+   reference these from Tailwind via arbitrary values, e.g. bg-[var(--panel)]. */
+:root {
+  --paper: #f1f0eb;
+  --panel: #fbfbf8;
+  --panel-2: #f4f3ee;
+  --ink: #1d1c19;
+  --ink-2: #4b4a45;
+  --ink-3: #7a7872;
+  --line: #dad8cf;
+  --line-soft: #e7e5dd;
+  --accent: #c0563a;
+  --accent-deep: #7a4a36;
+  --accent-soft: #eadfd6;
+  --shadow: 40 30 20;
+}
+
+html.dark {
+  --paper: #181612;
+  --panel: #211e19;
+  --panel-2: #26221c;
+  --ink: #ece8df;
+  --ink-2: #b8b3a7;
+  --ink-3: #8c887d;
+  --line: #332e26;
+  --line-soft: #2a261f;
+  --accent: #d9714e;
+  --accent-deep: #c0563a;
+  --accent-soft: #3a2c23;
+  --shadow: 0 0 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overscroll-behavior: none;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+}
