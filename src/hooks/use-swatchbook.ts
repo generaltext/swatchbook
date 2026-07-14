@@ -40,6 +40,10 @@ function stripUndefined<T extends object>(obj: T): Partial<T> {
  *  in a real workspace, and only ever seeds when it's empty. */
 async function maybeSeed() {
   const gt = window.gt
+  // Wait for the broker handshake: `mode`/`sync.isLocal` are their 'live'/false
+  // defaults until it lands (e.g. in a /demo/{slug} workspace, where the app frame
+  // attaches asynchronously), so checking too early would wrongly skip seeding.
+  await gt.ready
   if (gt.mode !== 'demo' && !gt.sync.isLocal) return
   const files = await gt.listFiles()
   // Gate on the projects file specifically: a user who cleared their projects in

@@ -1,7 +1,7 @@
 {
   "name": "swatchbook",
   "displayName": "Swatchbook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "gtApi": "^1.0",
   "blurb": "A lifelong, plaintext record of every colour and finish decision you make — across homes, workshops, and hobbies.",
   "icon": {
